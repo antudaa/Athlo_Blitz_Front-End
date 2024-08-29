@@ -8,8 +8,19 @@ import ContactPage from "../pages/ContactPage";
 import FacilityListingPage from "../pages/FacilityListingPage";
 import FacilityDetailsPage from "../pages/FacilityDetailsPage";
 import DashboardLayout from "../components/layout/DashboardLayout";
+import LoginPage from "../pages/LoginPage";
+import SignUpPage from "../pages/SignUpPage";
 
 const router = createBrowserRouter([
+    
+    {
+        path: 'login',
+        element: <LoginPage />,
+    },
+    {
+        path: 'register',
+        element: <SignUpPage />,
+    },
     {
         path: '/',
         element: <HomePageLayout />,
