@@ -9,6 +9,7 @@ import { UploadFile } from 'antd/es/upload/interface';
 import { RuleObject } from 'antd/es/form';
 import PrimaryButton from '../components/ui/button/SubmitButton';
 import UploadButton from '../components/ui/inputField/FileUploadInput';
+import siteLogo from '../assets/Site_Logo.png';
 
 interface FormValues {
     firstName: string;
@@ -33,12 +34,17 @@ const SignUpPage: React.FC = () => {
     return (
         <div className="relative min-h-screen bg-gray-100 flex items-center justify-center">
             <img
-                src="https://images.pexels.com/photos/7130543/pexels-photo-7130543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-72582.jpg?w=826&t=st=1725005473~exp=1725006073~hmac=5d4be05f3f54c41ddf34d5bddb18f432a7228c049a052cf64b46788ccc07e0bb"
                 alt="background"
                 className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="relative bg-white p-8 rounded-lg shadow-md max-w-xl w-full z-10">
-                <h2 className="text-2xl font-semibold mb-6 text-center">Sign Up</h2>
+                <img
+                    src={siteLogo}
+                    alt="pagedone logo"
+                    className="mx-auto mb-6 w-80"
+                />
+                <h2 className="text-2xl lg:text-3xl font-semibold mb-10 text-center text-[#617EFF]">Sign Up</h2>
                 <Form
                     name="signup"
                     layout="vertical"

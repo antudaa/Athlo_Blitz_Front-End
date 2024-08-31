@@ -1,15 +1,17 @@
+import siteLogo from '../assets/Site_Logo.png';
+
 const LoginPage = () => {
     return (
         <div>
             <section className="flex justify-center relative">
                 <img
-                    src="https://images.pexels.com/photos/7130543/pexels-photo-7130543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    src="https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-72582.jpg?w=826&t=st=1725005473~exp=1725006073~hmac=5d4be05f3f54c41ddf34d5bddb18f432a7228c049a052cf64b46788ccc07e0bb"
                     alt="gradient background"
                     className="w-full h-full object-cover fixed"
                 />
                 <div className="mx-auto max-w-lg px-6 lg:px-8 absolute py-20">
                     <img
-                        src="https://pagedone.io/asset/uploads/1702362108.png"
+                        src={siteLogo}
                         alt="pagedone logo"
                         className="mx-auto lg:mb-11 mb-8"
                     />

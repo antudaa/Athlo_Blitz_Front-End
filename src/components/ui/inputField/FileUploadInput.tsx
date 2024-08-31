@@ -57,7 +57,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ defaultFileList, name }) =>
                 defaultFileList={defaultFileList}
                 className="w-full"
             >
-                <Button icon={<UploadOutlined />} className="w-full px-44">
+                <Button icon={<UploadOutlined />} className="w-full md:px-44">
                     Upload Profile Image
                 </Button>
             </Upload>
