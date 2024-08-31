@@ -43,7 +43,7 @@ const router = createBrowserRouter([
                 element: <ContactPage />,
             },
             {
-                path: 'facility-listing',
+                path: 'facilitiy-listing',
                 element: <FacilityListingPage />,
             },
             {

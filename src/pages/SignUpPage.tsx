@@ -32,13 +32,13 @@ const SignUpPage: React.FC = () => {
     };
 
     return (
-        <div className="relative min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="relative min-h-screen bg-gray-100 flex items-center justify-center ">
             <img
-                src="https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-72582.jpg?w=826&t=st=1725005473~exp=1725006073~hmac=5d4be05f3f54c41ddf34d5bddb18f432a7228c049a052cf64b46788ccc07e0bb"
+                src="https://img.freepik.com/free-vector/blue-fluid-background_53876-114597.jpg?t=st=1725113475~exp=1725117075~hmac=ceecb0d0781276dfb66e91e356142b37e2020224a3aba10ffe5ed6aca33bb600&w=1380"
                 alt="background"
                 className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="relative bg-white p-8 rounded-lg shadow-md max-w-xl w-full z-10">
+            <div className="relative bg-white p-8 rounded-lg shadow-md max-w-xl w-full z-10 m-8">
                 <img
                     src={siteLogo}
                     alt="pagedone logo"

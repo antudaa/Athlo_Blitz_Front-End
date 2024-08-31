@@ -5,7 +5,7 @@ const { Footer } = Layout;
 const FooterSection = () => {
 
     return (
-        <Footer className="relative bg-blueGray-200 pt-8 pb-6">
+        <Footer className="relative bg-blueGray-200 pt-8 pb-6 border-t">
             <footer className="w-full">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     {/* <!--Grid--> */}
