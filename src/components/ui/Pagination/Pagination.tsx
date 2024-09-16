@@ -11,7 +11,10 @@ interface TPaginationComponentProp {
 const PaginationComponent: React.FC<TPaginationComponentProp> = ({ current, total, pageSize, onChange }) => {
     return (
         <Pagination
+            className='justify-end my-10'
+            showSizeChanger
             showQuickJumper
+            showTotal={(total) => `Total ${total} items`}
             current={current}
             total={total}
             pageSize={pageSize}
