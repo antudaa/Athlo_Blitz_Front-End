@@ -1,7 +1,7 @@
 import React from 'react';
 import { Upload, Button, Form, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { UploadFile, RcCustomRequestOptions } from 'antd/es/upload/interface'; // Updated import
+import { UploadFile } from 'antd/es/upload/interface'; // Only import UploadFile
 import { TError } from '../../../types/Error/errorType';
 
 // Replace with your ImageBB API key
@@ -16,7 +16,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ defaultFileList, name }) =>
     const [form] = Form.useForm();
 
     // Define the customRequest function
-    const customRequest = async (options: RcCustomRequestOptions) => { // Use RcCustomRequestOptions here
+    const customRequest = async (options: any) => { // Use any here to avoid type conflicts
         const { file, onSuccess, onError } = options;
 
         // Ensure file is a valid type
@@ -39,7 +39,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ defaultFileList, name }) =>
             if (result.success) {
                 const imageUrl = result.data.url;
                 form.setFieldsValue({ [name]: imageUrl });
-                onSuccess?.(result.data, file);
+                onSuccess?.(result.data, undefined); // Pass undefined as the second argument
                 message.success('Image uploaded successfully!');
             } else {
                 throw new Error(result.error.message);

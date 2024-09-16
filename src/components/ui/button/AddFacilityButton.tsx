@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Modal, Input, InputNumber, message } from 'antd';
+import { Button, Form, Modal, Input, InputNumber, message, UploadFile } from 'antd';
 import toast from 'react-hot-toast';
 import { IFacility } from '../../../types/Facility/facility.type';
 import { useCreateFacilityMutation } from '../../../redux/features/facility/facilityApi';
@@ -8,40 +8,41 @@ import { useSelector } from 'react-redux';
 import { selectCurrentUser, useCurrentToken } from '../../../redux/features/auth/authSlice';
 import MultipleUploadButton from './MultipleUploadButton';
 import { TError } from '../../../types/Error/errorType';
-import { IUser } from '../../../types/user/user.type';
+import { IUser, TUser } from '../../../types/user/user.type';
+
+const transformUser = (tUser: TUser): IUser => {
+    return {
+        _id: tUser._id,
+        email: tUser.email,
+        isDeleted: false,
+        passwordChangedAt: '',
+        role: 'user',
+        status: 'active',
+    };
+};
 
 const AddFacilityButton: React.FC = () => {
     const token = useSelector(useCurrentToken);
-    const user = useSelector(selectCurrentUser);
+    const tUser = useSelector(selectCurrentUser);
+    const user = tUser ? transformUser(tUser) : undefined;
     const [open, setOpen] = useState(false);
     const [form] = Form.useForm();
     const [createFacility] = useCreateFacilityMutation();
-    const [imageList, setImageList] = useState<any[]>([]);
+    const [imageList, setImageList] = useState<UploadFile[]>([]);
 
     const handleAdd = () => {
         setOpen(true);
     };
 
     const onFinish = async (values: Partial<IFacility>) => {
-        // Extract image URLs safely
         const images = imageList.map(file => file.response?.url).filter((url): url is string => !!url);
-    
-        // Create a minimal IUser object
-        const minimalUser: IUser = {
-            _id: user?.user?._id || '',
-            email: '',
-            isDeleted: false,
-            passwordChangedAt: '',
-            role: '',
-            status: '',
-        };
-    
+
         const facilityData: Partial<IFacility> = {
             ...values,
             images,
-            user: minimalUser,
+            user: user, // Use transformed IUser
         };
-    
+
         try {
             const res = await createFacility({ facilityInfo: facilityData, token }).unwrap();
             if (res.success) {
@@ -128,7 +129,7 @@ const AddFacilityButton: React.FC = () => {
                         valuePropName="fileList"
                         getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
                     >
-                        <MultipleUploadButton name="images" onChange={setImageList} />
+                        <MultipleUploadButton name="images" onChange={setImageList} defaultFileList={imageList} />
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ span: 24 }}>

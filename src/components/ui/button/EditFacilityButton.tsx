@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Form, Modal, Input, InputNumber, message } from 'antd';
+import { Button, Form, Modal, Input, InputNumber, message, UploadFile } from 'antd';
 import toast from 'react-hot-toast';
 import { IFacility } from '../../../types/Facility/facility.type';
 import { useUpdateFacilityMutation } from '../../../redux/features/facility/facilityApi';
@@ -18,7 +18,7 @@ const EditFacilityButton: React.FC<TFacilityEditButtonProps> = ({ record }) => {
     const [open, setOpen] = useState(false);
     const [form] = Form.useForm();
     const [updateFacility] = useUpdateFacilityMutation();
-    const [imageList, setImageList] = useState<any[]>([]);
+    const [imageList, setImageList] = useState<UploadFile[]>([]);
 
     useEffect(() => {
         form.setFieldsValue({
@@ -29,7 +29,14 @@ const EditFacilityButton: React.FC<TFacilityEditButtonProps> = ({ record }) => {
             location: record.location,
             images: record.images,
         });
-        setImageList(record.images.map(url => ({ url })));
+
+        // Map images to the UploadFile type
+        setImageList(record.images.map((url, index) => ({
+            uid: `${index}`,  // Unique identifier
+            name: `image-${index}`,  // Filename (optional)
+            url,  // The image URL
+            status: 'done',  // Status of the file
+        })));
     }, [record, form]);
 
     const handleEdit = () => {
@@ -137,7 +144,7 @@ const EditFacilityButton: React.FC<TFacilityEditButtonProps> = ({ record }) => {
                         valuePropName="fileList"
                         getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
                     >
-                        <MultipleUploadButton name="images" onChange={setImageList} />
+                        <MultipleUploadButton name="images" onChange={setImageList} defaultFileList={imageList} />
                     </Form.Item>
 
                     <Form.Item wrapperCol={{ span: 24 }}>

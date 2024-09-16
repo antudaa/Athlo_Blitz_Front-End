@@ -15,7 +15,7 @@ Follow these steps to get the project up and running on your local environment.
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-repo/Athlo_Blitz.git
+    [git clone https://github.com/your-repo/Athlo_Blitz.git](https://github.com/antudaa/Athlo_Blitz_Front-End.git)
     cd Athlo_Blitz
     ```
 

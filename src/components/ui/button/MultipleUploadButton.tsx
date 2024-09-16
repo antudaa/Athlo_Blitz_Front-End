@@ -9,7 +9,7 @@ const IMAGEBB_API_KEY = import.meta.env.VITE_IMAGEBB_API_KEY;
 interface UploadButtonProps {
     defaultFileList?: UploadFile[];
     name: string;
-    onChange: (fileList: UploadFile[]) => void;
+    onChange: (fileList: UploadFile[]) => void; // Add this line
 }
 
 const MultipleUploadButton: React.FC<UploadButtonProps> = ({ defaultFileList, onChange }) => {
@@ -36,9 +36,9 @@ const MultipleUploadButton: React.FC<UploadButtonProps> = ({ defaultFileList, on
                 const imageUrl = result.data.url;
                 onChange([
                     ...(defaultFileList || []),
-                    { uid: file.uid || `${Date.now()}`, name: file.name, status: 'done', url: imageUrl }, // Assign a unique uid
+                    { uid: `${Date.now()}`, name: (file as RcFile).name, status: 'done', url: imageUrl }, // Use only file.name and Date.now() for unique uid
                 ]);
-                onSuccess?.(result.data, file);
+                onSuccess?.(result.data, undefined); // Pass undefined as the second argument
                 message.success('Image uploaded successfully!');
             } else {
                 throw new Error(result.error.message);

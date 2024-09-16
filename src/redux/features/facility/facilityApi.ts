@@ -4,14 +4,17 @@ import { baseApi } from "../../api/baseApi";
 const facilityApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         createFacility: builder.mutation({
-            query: ({ facilityInfo, token }) => ({
-                url: "/facility",
-                method: "POST",
-                body: facilityInfo,
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }),
+            query: ({ facilityInfo, token }) => {
+                console.log(facilityInfo);
+                return {
+                    url: "/facility",
+                    method: "POST",
+                    body: facilityInfo,
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            },
             invalidatesTags: ['facilities'],
         }),
         updateFacility: builder.mutation({
