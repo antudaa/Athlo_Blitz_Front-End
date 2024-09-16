@@ -1,49 +1,47 @@
 import React, { useRef, useState } from "react";
-import { TProduct } from "../../../types/Product.interface";
 import type { InputRef, TableColumnsType, TableColumnType } from 'antd';
 import { Button, Input, Space, Spin, Table } from 'antd';
-import { useGetProductQuery } from "../../../redux/api/baseApi";
 import { FilterDropdownProps } from "antd/es/table/interface";
 import { SearchOutlined } from "@ant-design/icons";
 import Highlighter from "react-highlight-words";
-import EditProductButton from "../button/EditProductButton";
-import DeleteProductButton from "../button/DeleteProductButton";
 import PaginationComponent from "../Pagination/Pagination";
+import { TBooking } from "../../../types/Booking/bookingType";
+import { useGetBookingsByUserQuery } from "../../../redux/features/booking/bookingApi";
+import { useSelector } from "react-redux";
+import { useCurrentToken } from "../../../redux/features/auth/authSlice";
+import CancelBookingButton from "../button/CancelBookingButton";
+import { Link } from "react-router-dom";
 
-type DataIndex = keyof TProduct;
+type DataIndex = keyof TBooking | 'facility.name';
 
-const ManageProductTable: React.FC = () => {
+const ManageMyBookingsTable: React.FC = () => {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState<DataIndex | ''>('');
     const [page, setPage] = useState(1);
     const [limit] = useState(10);
     const searchInput = useRef<InputRef>(null);
+    const token = useSelector(useCurrentToken);
 
-    const { data: ProductData, isLoading: productDataLoading } = useGetProductQuery({
-        page, limit
+    // Query to fetch bookings, with pagination parameters
+    const { data: Bookings, isLoading: bookingIsLoading } = useGetBookingsByUserQuery({
+        token,
+        page,
+        limit,
     });
 
-    const totalProducts = ProductData?.data?.total || 0;
+    // Total bookings from API
+    const totalBookings = Bookings?.data?.total || 0;
 
-    const products: TProduct[] = ProductData?.data?.data?.filter((product: TProduct) => !product.isDeleted)
-        ?.map((product: TProduct) => ({
-            key: product?._id,
-            _id: product?._id,
-            category: product?.category?.categoryName,
-            title: product?.title,
-            description: product?.description,
-            quantity: product?.quantity,
-            price: product?.price,
-            productImage: product?.productImage,
-            outOfStock: product?.outOfStock,
-            rating: product?.rating,
-            isDeleted: product?.isDeleted,
-        })) || [];
+    // Filter out deleted bookings
+    const bookings: TBooking[] = Bookings?.data?.data?.filter(
+        (booking: TBooking) => !booking?.isDeleted
+    ) || [];
 
+    // Search handling
     const handleSearch = (
         selectedKeys: string[],
         confirm: FilterDropdownProps['confirm'],
-        dataIndex: DataIndex,
+        dataIndex: DataIndex
     ) => {
         confirm();
         setSearchText(selectedKeys[0]);
@@ -55,7 +53,7 @@ const ManageProductTable: React.FC = () => {
         setSearchText('');
     };
 
-    const getColumnSearchProps = (dataIndex: DataIndex): TableColumnType<TProduct> => ({
+    const getColumnSearchProps = (dataIndex: DataIndex): TableColumnType<TBooking> => ({
         filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
             <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
                 <Input
@@ -76,11 +74,7 @@ const ManageProductTable: React.FC = () => {
                     >
                         Search
                     </Button>
-                    <Button
-                        onClick={() => clearFilters && handleReset(clearFilters)}
-                        size="small"
-                        style={{ width: 90 }}
-                    >
+                    <Button onClick={() => clearFilters && handleReset(clearFilters)} size="small" style={{ width: 90 }}>
                         Reset
                     </Button>
                     <Button
@@ -109,10 +103,16 @@ const ManageProductTable: React.FC = () => {
         filterIcon: (filtered: boolean) => (
             <SearchOutlined style={{ color: filtered ? '#1677ff' : undefined }} />
         ),
-        onFilter: (value, record) => {
-            const recordValue = record[dataIndex];
-            return recordValue ? recordValue.toString().toLowerCase().includes((value as string).toLowerCase()) : false;
-        },
+        onFilter: (value, record) =>
+            dataIndex === 'facility.name'
+                ? record.facility?.name
+                    ?.toString()
+                    .toLowerCase()
+                    .includes((value as string).toLowerCase())
+                : record[dataIndex]
+                    ?.toString()
+                    .toLowerCase()
+                    .includes((value as string).toLowerCase()),
         onFilterDropdownOpenChange: (visible) => {
             if (visible) {
                 setTimeout(() => searchInput.current?.select(), 100);
@@ -131,74 +131,78 @@ const ManageProductTable: React.FC = () => {
             ),
     });
 
+    // Handle pagination change
     const handlePageChange = (pageNumber: number) => {
         setPage(pageNumber);
     };
 
-    const columns: TableColumnsType<TProduct> = [
+    // Table columns configuration
+    const columns: TableColumnsType<TBooking> = [
         {
-            title: 'Product Image',
-            dataIndex: 'productImage',
-            key: 'productImage',
-            width: '10%',
-            render: (text) => <img className="rounded-xl border border-indigo-400" src={text} alt="product" style={{ width: 50, height: 40 }} />,
+            title: 'Facility',
+            dataIndex: ['facility', 'name'],
+            key: 'facility',
+            render: (_, record) => <span>{record.facility?.name || 'N/A'}</span>,
+            ...getColumnSearchProps('facility.name'),
         },
         {
-            title: 'Product Name',
-            dataIndex: 'title',
-            key: 'title',
-            width: '20%',
-            ...getColumnSearchProps('title'),
+            title: 'Date',
+            dataIndex: 'date',
+            key: 'date',
+            ...getColumnSearchProps('date'),
         },
         {
-            title: 'Category',
-            dataIndex: 'category',
-            key: "category",
-            width: '10%',
-            ...getColumnSearchProps('category'),
+            title: 'Start Time',
+            dataIndex: 'startTime',
+            key: 'startTime',
+            ...getColumnSearchProps('startTime'),
         },
         {
-            title: 'Price',
-            dataIndex: 'price',
-            key: "price",
-            width: '10%',
-            ...getColumnSearchProps('price'),
+            title: 'End Time',
+            dataIndex: 'endTime',
+            key: 'endTime',
+            ...getColumnSearchProps('endTime'),
         },
         {
-            title: 'Available Quantity',
-            dataIndex: 'quantity',
-            key: "quantity",
-            width: '10%',
-            ...getColumnSearchProps('quantity'),
+            title: 'Payment Status',
+            dataIndex: 'paymentStatus',
+            key: 'paymentStatus',
+            ...getColumnSearchProps('paymentStatus'),
         },
         {
-            title: 'Status',
-            dataIndex: 'outOfStock',
-            key: "outOfStock",
-            width: '10%',
-            render: (text) => (text ? 'Out Of Stock' : 'In Stock'),
+            title: 'Payable Amount',
+            dataIndex: 'payableAmount',
+            key: 'payableAmount',
+            render: (amount) => `$${amount.toFixed(2)}`,
         },
         {
-            title: 'Rating',
-            dataIndex: 'rating',
-            key: 'rating',
-            width: '10%',
-            ...getColumnSearchProps('rating'),
+            title: 'Transaction ID',
+            dataIndex: 'transactionId',
+            key: 'transactionId',
+            ...getColumnSearchProps('transactionId'),
         },
         {
-            title: 'Action',
-            key: 'action',
-            width: '30%',
+            title: 'View Booking',
+            key: 'view',
             render: (_, record) => (
-                <Space size="middle">
-                    <EditProductButton record={record} />
-                    <DeleteProductButton record={record} />
-                </Space>
+                <Link to={`/booking-details/${record._id}`}>
+                    <Button>View Details</Button>
+                </Link>
+            ),
+        },
+        {
+            title: 'Cancel Booking',
+            key: 'cancel',
+            render: (_, record) => (
+                <>
+                    <CancelBookingButton id={record._id} />
+                </>
             ),
         },
     ];
 
-    if (productDataLoading) {
+    // Loading spinner while fetching bookings
+    if (bookingIsLoading) {
         return (
             <div className="flex justify-center items-center h-screen">
                 <Spin size="large" />
@@ -209,16 +213,18 @@ const ManageProductTable: React.FC = () => {
     return (
         <>
             <Table
+                className="shadow-xl"
                 columns={columns}
-                dataSource={products}
-                pagination={false} // Remove default pagination
+                dataSource={bookings}
+                pagination={false}
                 scroll={{ x: 700 }}
+                rowKey={(record) => record._id}
             />
-            <div className="flex justify-center mt-8">
-                {ProductData && (
+            <div className="flex justify-end mt-8">
+                {Bookings && (
                     <PaginationComponent
                         current={page}
-                        total={totalProducts}
+                        total={totalBookings}
                         pageSize={limit}
                         onChange={handlePageChange}
                     />
@@ -228,4 +234,4 @@ const ManageProductTable: React.FC = () => {
     );
 };
 
-export default ManageProductTable;
+export default ManageMyBookingsTable;

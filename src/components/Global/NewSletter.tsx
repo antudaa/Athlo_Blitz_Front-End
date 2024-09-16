@@ -1,8 +1,20 @@
+import { motion } from "framer-motion";
 
 const NewSletter = () => {
+    // Animation variants for the cards
+    const cardVariants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: { opacity: 1, y: 0 },
+    };
     return (
         <section className="py-20 ">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 1.5 }}
+                className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="bg-indigo-600 rounded-2xl p-8 xl:p-11">
                     <h2 className="font-manrope text-4xl text-white text-center font-bold mb-4">Subscribe to the latest offer
                     </h2>
@@ -18,7 +30,7 @@ const NewSletter = () => {
                             className="py-2 px-5 text-sm bg-indigo-500 shadow-md rounded-full  text-white font-semibold hover:bg-indigo-700">Subscribe</button>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 };

@@ -2,22 +2,22 @@
 
 const Navbar = () => {
 
-  return (
-    <section className="py-24 ">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-14 text-center">
-          <h2 className="text-4xl text-center font-bold text-gray-900 leading-[3.25rem] mb-6 max-w-max lg:max-w-3xl lg:mx-auto">Developed from scratch for seamless online functionality</h2>
-          <p className="text-base font-normal text-gray-500 lg:max-w-2xl lg:mx-auto mb-8">Using technology to make finance simpler, smarter and more rewarding. </p>
-          <div className="flex flex-col justify-center md:flex-row gap-5 max-w-lg mx-auto md:max-w-2xl lg:max-w-full">
-            <a href="javascript:;" className="cursor-pointer bg-indigo-600 py-3 px-6 rounded-full flex items-center justify-center text-sm font-semibold text-white transition-all duration-500 focus:outline-none hover:bg-indigo-700">
-              Get started
-            </a>
-            <a href="javascript:;" className="cursor-pointer bg-indigo-50 py-3 px-6 rounded-full flex items-center justify-center  text-sm font-semibold text-indigo-600 transition-all duration-500 focus:outline-none hover:bg-indigo-100">
-              Learn more
-            </a>
-          </div>
-        </div>
-        <div className="font-sans py-10 px-4 mx-auto lg:max-w-5xl md:max-w-3xl sm:max-w-full">
+    return (
+        <section className="py-24 ">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mb-14 text-center">
+                    <h2 className="text-4xl text-center font-bold text-gray-900 leading-[3.25rem] mb-6 max-w-max lg:max-w-3xl lg:mx-auto">Developed from scratch for seamless online functionality</h2>
+                    <p className="text-base font-normal text-gray-500 lg:max-w-2xl lg:mx-auto mb-8">Using technology to make finance simpler, smarter and more rewarding. </p>
+                    <div className="flex flex-col justify-center md:flex-row gap-5 max-w-lg mx-auto md:max-w-2xl lg:max-w-full">
+                        <a href="" className="cursor-pointer bg-indigo-600 py-3 px-6 rounded-full flex items-center justify-center text-sm font-semibold text-white transition-all duration-500 focus:outline-none hover:bg-indigo-700">
+                            Get started
+                        </a>
+                        <a href="" className="cursor-pointer bg-indigo-50 py-3 px-6 rounded-full flex items-center justify-center  text-sm font-semibold text-indigo-600 transition-all duration-500 focus:outline-none hover:bg-indigo-100">
+                            Learn more
+                        </a>
+                    </div>
+                </div>
+                <div className="font-sans py-10 px-4 mx-auto lg:max-w-5xl md:max-w-3xl sm:max-w-full">
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="bg-white rounded overflow-hidden shadow-md cursor-pointer hover:scale-[1.02] transition-all">
@@ -159,9 +159,9 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    );
 };
 
 export default Navbar;
