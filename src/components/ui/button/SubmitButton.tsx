@@ -8,7 +8,7 @@ interface PrimaryButtonProps {
 }
 
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({ text, htmlType = 'button' }) => (
-    <Button type="primary" htmlType={htmlType} className="w-full">
+    <Button type="primary" htmlType={htmlType} className="w-full h-10">
         {text}
     </Button>
 );
