@@ -1,11 +1,13 @@
 import { RouterProvider } from 'react-router-dom';
-import router from './routes/routes';
+import router from './routes';
+import ScrollToTopButton from './utils/ScrollToTop';
 
 const AppContent = () => {
 
   return (
     <>
       <RouterProvider router={router} />
+      <ScrollToTopButton />
     </>
   );
 };
