@@ -4,7 +4,7 @@ import siteLogo from '../../assets/Site_Logo.png';
 import PrimaryButton from '../../components/ui/button/SubmitButton';
 import PasswordInput from '../../components/ui/inputField/PasswordInput';
 import TextInput from '../../components/ui/inputField/TextInput';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TLogin } from '../../types/Auth/login';
 import { useLoginMutation } from '../../redux/features/auth/authApi';
 import LoadingButton from '../../components/ui/button/LoadingButton';
@@ -18,7 +18,9 @@ const { Text } = Typography;
 
 const LoginPage = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const dispatch = useAppDispatch();
+    const [form] = Form.useForm();
 
     // Use the login mutation hook
     const [login, { isLoading }] = useLoginMutation();
@@ -47,7 +49,8 @@ const LoginPage = () => {
             dispatch(setUser({ user: user?.data, token: res?.data?.accessToken }));
 
             // Navigate to home page
-            navigate('/');
+            const redirectPath = location.state?.from || "/";
+            navigate(redirectPath);
 
             // Show success message
             message.success('Login Successful.');
@@ -59,6 +62,15 @@ const LoginPage = () => {
                 message.error('An unknown error occurred.');
             }
         }
+    };
+
+    // Function to autofill credentials
+    const handleAutofill = (type: 'user' | 'admin') => {
+        const credentials = {
+            user: { email: 'antudaa@gmail.com', password: 'antu' },
+            admin: { email: 'antu@gmail.com', password: 'piudas' },
+        };
+        form.setFieldsValue(credentials[type]);
     };
 
     return (
@@ -76,10 +88,27 @@ const LoginPage = () => {
                 />
                 <div className="rounded-2xl bg-white">
                     <Form
+                        form={form}
                         className="p-7 mx-auto"
                         onFinish={onSubmit}
                         layout="vertical"
                     >
+                        <div className="flex justify-between mb-4">
+                            <button
+                                type="button"
+                                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                                onClick={() => handleAutofill('user')}
+                            >
+                                User Credential
+                            </button>
+                            <button
+                                type="button"
+                                className="bg-green-500 text-white px-4 py-2 rounded-md"
+                                onClick={() => handleAutofill('admin')}
+                            >
+                                Admin Credential
+                            </button>
+                        </div>
                         <TextInput
                             label="Email"
                             name="email"
@@ -115,6 +144,10 @@ const LoginPage = () => {
                             <Link to="/register" className="flex justify-center text-gray-900 text-sm font-medium leading-6 hover:text-gray-900">
                                 Don’t have an account?
                                 <span className="text-blue-600 font-semibold pl-3">Sign Up</span>
+                            </Link>
+                            <Link to="/" className="flex justify-center text-gray-900 text-sm font-medium leading-6 hover:text-gray-900">
+                                Back to
+                                <span className="text-blue-600 font-semibold pl-3">Home</span>
                             </Link>
                         </Form.Item>
                     </Form>

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 import BannerImage from '../../../assets/Failities_Image/FootballTurf_1.jpg'
 
 const HeroSection = () => {
@@ -30,21 +32,7 @@ const HeroSection = () => {
                         to='/facilities'
                         className="w-8 h-8 rounded-full flex justify-center items-center bg-indigo-600"
                     >
-                        <svg
-                            width="17"
-                            height="16"
-                            viewBox="0 0 17 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M2.83398 8.00019L12.9081 8.00019M9.75991 11.778L13.0925 8.44541C13.3023 8.23553 13.4073 8.13059 13.4073 8.00019C13.4073 7.86979 13.3023 7.76485 13.0925 7.55497L9.75991 4.22241"
-                                stroke="white"
-                                strokeWidth="1.6"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
+                        <FaLongArrowAltRight className="text-white" />
                     </Link>
                 </motion.div>
                 <motion.div
@@ -66,23 +54,8 @@ const HeroSection = () => {
                         to='/register'
                         className="w-full md:w-auto mb-14 inline-flex items-center justify-center py-3 px-7 text-base font-semibold text-center text-white rounded-full bg-indigo-600 shadow-xs hover:text-white hover:bg-indigo-700 transition-all duration-500"
                     >
-                        Create an account
-                        <svg
-                            className="ml-2"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
-                                stroke="white"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
+                        <span className="">Create an account</span>
+                        <FaChevronRight className="ml-4" />
                     </Link>
                 </motion.div>
                 <motion.div
@@ -95,7 +68,7 @@ const HeroSection = () => {
                     <img
                         src={BannerImage}
                         alt="Dashboard image"
-                        className="rounded-t-3xl border-2 border-indigo-600 p-1"
+                        className="rounded-t-3xl border-2 border-indigo-600 p-1 w-[1200px] h-[200px] md:h-[350px] lg:h-[400px]"
                     />
                 </motion.div>
             </div>

@@ -153,6 +153,10 @@ const SignUpPage = () => {
                                 Already have an account?
                                 <span className="text-blue-600 font-semibold text-xs pl-3 my-auto">Login</span>
                             </Link>
+                            <Link to="/" className="flex justify-center text-gray-900 text-xs font-medium leading-6 hover:text-gray-900">
+                                Back to
+                                <span className="text-blue-600 font-semibold pl-3">Home</span>
+                            </Link>
                         </Form.Item>
                     </Form>
                 </div>

@@ -1,5 +1,4 @@
-import { Button, Form, Spin } from 'antd';
-import { DatePicker } from 'antd';
+import { Button, Form, Spin, DatePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
 import { useGetAvailableTimeSlotQuery } from '../../../redux/features/slotAvailibility/availableSlotApi';
 import { useSelector } from 'react-redux';
@@ -7,8 +6,8 @@ import { useCurrentToken } from '../../../redux/features/auth/authSlice';
 import { useState } from 'react';
 import ErrorComponent from '../error/ErrorComponent';
 import AvailableSlots, { TAvailableSlot } from '../../Section/Booking/AvailableSlots';
-import BookingForm from './BookingForm';
 import { motion } from 'framer-motion';
+import BookingForm from './BookingForm';
 
 interface FormValues {
     date: Dayjs | null;
@@ -19,23 +18,33 @@ interface CheckAvailabilityFormProps {
 }
 
 const CheckAvailabilityForm = ({ id }: CheckAvailabilityFormProps) => {
-    // Animation variants for the cards
     const cardVariants = {
         hidden: { opacity: 0, y: 40 },
         visible: { opacity: 1, y: 0 },
     };
+
     const [form] = Form.useForm<FormValues>();
     const [date, setDate] = useState<string | null>(null);
-    const [dateError, setDateError] = useState<string | null>('Please select a date'); // State to track date error
+    const [dateError, setDateError] = useState<string | null>('Please select a date');
+    const [selectedSlot, setSelectedSlot] = useState<TAvailableSlot | null>(null);
+
     const token = useSelector(useCurrentToken);
 
-    // Call the API only when date is set, using skip option
     const { data, error, isLoading } = useGetAvailableTimeSlotQuery(
         { token, id, date: date || '' },
         { skip: !date }
     );
 
-    // Handle form submission
+    const handleSelectSlot = (slot: TAvailableSlot) => {
+        setSelectedSlot(slot);
+    };
+
+    const isSlotSelected = (slot: TAvailableSlot) =>
+        selectedSlot?.startTime === slot.startTime &&
+        selectedSlot?.endTime === slot.endTime &&
+        selectedSlot?.date === slot.date &&
+        selectedSlot?.facility === slot.facility;
+
     const handleSubmit = () => {
         const formData = form.getFieldsValue();
         const dateString = formData.date?.format('YYYY-MM-DD');
@@ -48,6 +57,8 @@ const CheckAvailabilityForm = ({ id }: CheckAvailabilityFormProps) => {
         }
     };
 
+    console.log(data);
+
     return (
         <section className="w-full max-w-7xl mx-auto px-4 md:px-8 mt-10">
             <motion.div
@@ -56,43 +67,82 @@ const CheckAvailabilityForm = ({ id }: CheckAvailabilityFormProps) => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 transition={{ duration: 1.5 }}
-                className="border border-indigo-500 rounded-xl shadow-xl h-full">
+                className="h-full"
+            >
                 <Form
                     form={form}
-                    className='grid grid-cols-6 md:gap-4 px-6 pt-8'
+                    className="grid grid-cols-6 md:gap-4 px-6 pt-8"
                     onFinish={handleSubmit}
                 >
                     <Form.Item
-                        className='col-span-6 md:col-span-4'
+                        className="col-span-6 md:col-span-4"
                         name="date"
                         rules={[{ required: true, message: 'Please select a date' }]}
                     >
-                        <DatePicker className='h-[40px] text-center' style={{ width: '100%' }} />
+                        <DatePicker className="h-[40px] text-center" style={{ width: '100%' }} />
                     </Form.Item>
 
-                    <Button type="primary" htmlType='submit' className='h-[40px] col-span-6 md:col-span-2 w-full'>
+                    <Button type="primary" htmlType="submit" className="h-[40px] col-span-6 md:col-span-2 w-full">
                         Check Available Slots
                     </Button>
                 </Form>
 
-                {/* Show error message if dateError is set */}
-                {dateError && (
-                    <div className="text-red-500 text-center mt-2">
-                        {dateError}
+                {dateError && <div className="text-red-500 text-center mt-2">{dateError}</div>}
+                {isLoading && <Spin className="flex justify-center" size="large" />}
+                {error && <ErrorComponent message="Something went wrong! Please try again." />}
+
+                {/* One Hour Slots */}
+                {data?.data?.oneHourSlots && (
+                    <div>
+                        <h2 className="font-manrope font-bold text-2xl sm:text-4xl leading-10 text-gray-700 mb-4 px-6">
+                            Slots Available For 1 Hour
+                        </h2>
+                        <div className="grid grid-cols-12 p-6 gap-4 mb-6">
+                            {data.data.oneHourSlots.map((slot: TAvailableSlot, i: number) => (
+                                <AvailableSlots
+                                    key={i}
+                                    {...slot}
+                                    onSelectSlot={handleSelectSlot}
+                                    isSelected={isSlotSelected(slot)}
+                                />
+                            ))}
+                        </div>
                     </div>
                 )}
 
-                {isLoading && <Spin className='flex justify-center' size="large" />}
+                {/* Two Hour Slots */}
+                {data?.data?.twoHourSlots && (
+                    <div>
+                        <h2 className="font-manrope font-bold text-2xl sm:text-4xl leading-10 text-gray-700 mb-4 px-6">
+                            Slots Available For 2 Hour
+                        </h2>
+                        <div className="grid grid-cols-12 p-6 gap-4">
+                            {data.data.twoHourSlots.map((slot: TAvailableSlot, i: number) => (
+                                <AvailableSlots
+                                    key={i}
+                                    {...slot}
+                                    onSelectSlot={handleSelectSlot}
+                                    isSelected={isSlotSelected(slot)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )}
 
-                {error && <ErrorComponent message='Something went wrong! Please try again.' />}
-
-                <div className='grid grid-cols-4 p-6 gap-4'>
-                    {data?.data?.map((slot: TAvailableSlot, i: number) => (
-                        <AvailableSlots key={i} {...slot} />
-                    ))}
-                </div>
-
-                <BookingForm date={date} facility={id} />
+                {/* Booking Form */}
+                {selectedSlot && (
+                    <div className="mt-10">
+                        <h3 className="font-manrope font-bold text-xl text-gray-700 mb-4 px-6">
+                            Proceed with the selected slot:
+                        </h3>
+                        <BookingForm
+                            date={date as string}
+                            facility={id}
+                            startTime={selectedSlot.startTime}
+                            endTime={selectedSlot.endTime}
+                        />
+                    </div>
+                )}
             </motion.div>
         </section>
     );

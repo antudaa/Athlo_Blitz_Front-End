@@ -163,8 +163,11 @@ const ManageAllUsersTable: React.FC = () => {
             title: 'Role',
             dataIndex: ['user', 'role'],
             key: 'role',
-            render: (_, record) => <span>{record.user?.role || 'N/A'}</span>,
-            ...getColumnSearchProps('user.role'),
+            render: (_, record) => (
+                <span
+                    className={`capitalize  px-2 py-1 rounded-md`}
+                >{record.user?.role || 'N/A'}</span>
+            ),
         },
         {
             title: 'Address',
@@ -175,8 +178,16 @@ const ManageAllUsersTable: React.FC = () => {
             title: 'Status',
             dataIndex: ['user', 'status'],
             key: 'status',
-            render: (_, record) => <span>{record.user?.status || 'N/A'}</span>,
-            ...getColumnSearchProps('user.status'),
+            render: (_, record) => (
+                <span
+                    className={`capitalize ${record.user?.status === 'active'
+                            ? 'bg-green-300 text-gray-700'
+                            : 'bg-red-300 text-red-800'
+                        } px-2 py-1 rounded-md`}
+                >
+                    {record.user?.status || 'N/A'}
+                </span>
+            ),
         },
         {
             title: 'Actions',

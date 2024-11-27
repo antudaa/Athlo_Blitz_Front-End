@@ -8,7 +8,7 @@ interface ButtonLinkProps {
 
 const ButtonLink: React.FC<ButtonLinkProps> = ({ text, link, width }) => {
     return (
-        <Link to={link} className={`px-4 py-2 text-center bg-indigo-500 text-white rounded-md font-semibold hover:bg-indigo-600 hover:text-white ${width ? width : ''}`}>
+        <Link to={link} className={`px-4 py-2 text-center bg-indigo-600 text-white rounded-md font-semibold hover:bg-indigo-700 hover:text-white ${width ? width : ''}`}>
             {text}
         </Link>
     );

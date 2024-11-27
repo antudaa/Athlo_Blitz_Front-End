@@ -6,6 +6,7 @@ import ErrorComponent from "../../components/ui/error/ErrorComponent";
 import { useState } from "react";
 import { StarOutlined } from "@ant-design/icons";
 import ButtonLink from "../../components/ui/button/ButtonLink";
+import FacilityReview from "../../components/Section/Facility/FacilityReview";
 
 const FacilityDetailsPage = () => {
     // Animation variants for the cards
@@ -31,7 +32,7 @@ const FacilityDetailsPage = () => {
     return (
         <div className="py-6 my-16 lg:my-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-                <div className="flex flex-col lg:flex-row -mx-4 relative border border-indigo-500 md:border-2 md:rounded-xl md:p-6 shadow-2xl p-4">
+                <div className="flex flex-col lg:flex-row -mx-4 relative ">
                     <motion.div
                         variants={cardVariants}
                         initial="hidden"
@@ -145,14 +146,25 @@ const FacilityDetailsPage = () => {
                         <div className="lg:hidden mt-6 flex items-center justify-center">
                             <ButtonLink
                                 width='w-full'
-                                // to={`/${user?.role}/bookings/${_id}`}
-                                link={''}
+                                link={`/booking/${id}`}
                                 text="Book Now"
                             />
                         </div>
                     </motion.div>
                 </div>
             </div>
+
+
+            <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 1.5 }}
+                className="lg:flex-1 px-4">
+
+                <FacilityReview />
+            </motion.div>
         </div>
     );
 };

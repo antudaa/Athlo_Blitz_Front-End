@@ -18,7 +18,7 @@ const FacilityCard: React.FC<FacilityCardProps> = ({ facility }) => {
     const { _id, name, images, location, pricePerHour, rating } = facility;
 
     return (
-        <Card className="block rounded-lg p-4 shadow-sm shadow-indigo-100 cursor-pointer hover:scale-[1.02] transition-all">
+        <Card className="block rounded-lg shadow-sm shadow-indigo-100 cursor-pointer hover:scale-[1.02] transition-all">
             <motion.img
                 variants={cardVariants}
                 initial="hidden"
@@ -35,7 +35,7 @@ const FacilityCard: React.FC<FacilityCardProps> = ({ facility }) => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 transition={{ duration: 1.5 }}
-                className="flex gap-2 w-[75px] absolute top-12 right-12 py-2 px-4 bg-indigo-50 rounded-lg">
+                className="flex gap-2 w-[75px] absolute top-12 right-12 py-1 px-4 bg-indigo-50 rounded-full">
                 <StarOutlined className="size-4 text-amber-600 my-auto" />
 
                 <div className="mt-1.5 sm:mt-0">
@@ -65,7 +65,7 @@ const FacilityCard: React.FC<FacilityCardProps> = ({ facility }) => {
                     </div>
                 </dl>
 
-                <div className="mt-2 flex items-center gap-8 text-xs">
+                <div className="mt-2 flex flex-col justify-between xl:flex-row gap-8 text-xs">
                     <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                         <svg
                             className="size-5 text-indigo-700"

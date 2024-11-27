@@ -20,7 +20,7 @@ const BookingPage = () => {
     return (
         <section className="py-24 lg:py-32 relative">
             <BookingHero facility={facility} />
-            {id && <CheckAvailabilityForm id={id} />}  {/* Only render if id exists */}
+            {id && <CheckAvailabilityForm id={id} />}
         </section>
     );
 };

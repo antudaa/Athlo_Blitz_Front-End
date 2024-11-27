@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, useCurrentToken } from "../../redux/features/auth/authSlice";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { verifyToken } from "../../utils/verifyToken";
 
 type TUser = {
@@ -16,6 +16,7 @@ type TProtectedRoute = {
 const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
     const token = useAppSelector(useCurrentToken);
     const dispatch = useAppDispatch();
+    const location = useLocation();
     const [user, setUser] = useState<TUser | null>(null);
     const [loading, setLoading] = useState(true);
 
@@ -40,7 +41,7 @@ const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
     }, [role, user, token, dispatch, loading]);
 
     if (!token) {
-        return <Navigate to="/login" replace={true} />;
+        return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
     if (loading) {

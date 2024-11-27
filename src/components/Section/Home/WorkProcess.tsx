@@ -41,7 +41,7 @@ const WorkProcess = () => {
                     transition={{ duration: 1.5 }}
                     className="flex flex-row">
                     <div className="hidden md:flex flex-col items-center">
-                        <div className="w-32 py-5 border border-gray-300 rounded mr-4 uppercase flex flex-col items-center justify-center">
+                        <div className="w-32 py-5 border border-gray-300 bg-white rounded mr-4 uppercase flex flex-col items-center justify-center">
                             <div className="text-3xl font-black text-gray-500">Step 1</div>
                             <div className="text-gray-500 text-sm text-center">Discover Facilities</div>
                         </div>
@@ -49,7 +49,7 @@ const WorkProcess = () => {
                             <div className="border-l-4 mr-4 h-full border-gray-300 border-dashed"></div>
                         </div>
                     </div>
-                    <div className="flex-auto border rounded border-gray-300">
+                    <div className="flex-auto border rounded border-gray-300 bg-white h-[300px] md:h-[250px] my-auto">
                         <div className="flex md:flex-row flex-col items-center">
                             <div className="flex-auto">
                                 <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
@@ -92,7 +92,7 @@ const WorkProcess = () => {
                     transition={{ duration: 1.5 }}
                     className="flex flex-row-reverse">
                     <div className="hidden md:flex flex-col items-center">
-                        <div className="w-32 py-5 border border-gray-300 rounded ml-4 uppercase flex flex-col items-center justify-center">
+                        <div className="w-32 py-5 border border-gray-300 bg-white rounded ml-4 uppercase flex flex-col items-center justify-center">
                             <div className="text-3xl font-black text-gray-500">Step 2</div>
                             <div className="text-gray-500 text-sm text-center">Check Availability & Book</div>
                         </div>
@@ -100,7 +100,7 @@ const WorkProcess = () => {
                             <div className="border-l-4 ml-4 h-full border-gray-300 border-dashed"></div>
                         </div>
                     </div>
-                    <div className="flex-auto border rounded border-gray-300">
+                    <div className="flex-auto border rounded border-gray-300 bg-white h-[300px] md:h-[250px] my-auto">
                         <div className="flex md:flex-row flex-col items-center">
                             <div className="flex-auto">
                                 <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
@@ -143,7 +143,7 @@ const WorkProcess = () => {
                     transition={{ duration: 1.5 }}
                     className="flex flex-row">
                     <div className="hidden md:flex flex-col items-center">
-                        <div className="w-32 py-5 border border-gray-300 rounded mr-4 uppercase flex flex-col items-center justify-center">
+                        <div className="w-32 py-5 border border-gray-300 bg-white rounded mr-4 uppercase flex flex-col items-center justify-center">
                             <div className="text-3xl font-black text-gray-500">Step 3</div>
                             <div className="text-gray-500 text-sm text-center">Secure Payment</div>
                         </div>
@@ -151,7 +151,7 @@ const WorkProcess = () => {
                             <div className="border-l-4 mr-4 h-full border-gray-300 border-dashed"></div>
                         </div>
                     </div>
-                    <div className="flex-auto border rounded border-gray-300">
+                    <div className="flex-auto border rounded border-gray-300 bg-white h-[300px] md:h-[250px] my-auto">
                         <div className="flex md:flex-row flex-col items-center">
                             <div className="flex-auto">
                                 <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
@@ -194,12 +194,12 @@ const WorkProcess = () => {
                     transition={{ duration: 1.5 }}
                     className="flex flex-row-reverse">
                     <div className="hidden md:flex flex-col items-center">
-                        <div className="w-32 py-5 border border-gray-300 rounded ml-4 uppercase flex flex-col items-center justify-center">
+                        <div className="w-32 py-5 border border-gray-300 bg-white rounded ml-4 uppercase flex flex-col items-center justify-center">
                             <div className="text-3xl font-black text-gray-500">Step 4</div>
                             <div className="text-gray-500 text-sm text-center">Manage Bookings & Reviews</div>
                         </div>
                     </div>
-                    <div className="flex-auto border rounded border-gray-300">
+                    <div className="flex-auto border rounded border-gray-300 bg-white h-[300px] md:h-[250px] my-auto">
                         <div className="flex md:flex-row flex-col items-center">
                             <div className="flex-auto">
                                 <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">

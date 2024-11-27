@@ -166,7 +166,17 @@ const ManageAllBookingsTable: React.FC = () => {
             title: 'Payment Status',
             dataIndex: 'paymentStatus',
             key: 'paymentStatus',
-            ...getColumnSearchProps('paymentStatus'),
+            render: (paymentStatus) => (
+                <span
+                    className={`capitalize ${paymentStatus === 'paid'
+                        ? 'bg-green-300 text-gray-700'
+                        : 'bg-red-300 text-red-800'
+                        } px-2 py-1 rounded-md`}
+                >
+                    {paymentStatus || 'N/A'}
+                </span>
+            ),
+            // ...getColumnSearchProps('paymentStatus'),
         },
         {
             title: 'Payable Amount',

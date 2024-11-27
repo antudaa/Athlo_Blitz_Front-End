@@ -1,8 +1,6 @@
 import { Layout } from "antd";
 import logo from '../../assets/Site_Logo.png';
-import { FaInstagram } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
+import { FaLink, FaLinkedinIn, FaGithub, FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const { Footer } = Layout;
@@ -46,16 +44,16 @@ const FooterSection = () => {
                             <h4 className="text-lg text-gray-900 font-medium mb-7">Products</h4>
                             <ul className="text-sm  transition-all duration-500">
                                 <li className="mb-6">
-                                    <a href="" className="cursor-pointer text-gray-600 hover:text-gray-900">Figma UI
-                                        System</a>
+                                    <Link to="#" className="cursor-pointer text-gray-600 hover:text-gray-900">Figma UI
+                                        System</Link>
                                 </li>
                                 <li className="mb-6">
-                                    <a href="" className="cursor-pointer  text-gray-600 hover:text-gray-900">Icons
-                                        Assets</a>
+                                    <Link to="#" className="cursor-pointer  text-gray-600 hover:text-gray-900">Icons
+                                        Assets</Link>
                                 </li>
                                 <li>
-                                    <a href="" className="cursor-pointer  text-gray-600 hover:text-gray-900">Responsive
-                                        Blocks</a>
+                                    <Link to="#" className="cursor-pointer  text-gray-600 hover:text-gray-900">Responsive
+                                        Blocks</Link>
                                 </li>
                             </ul>
                         </div>
@@ -64,16 +62,16 @@ const FooterSection = () => {
                             <h4 className="text-lg text-gray-900 font-medium mb-7">Support</h4>
                             <ul className="text-sm  transition-all duration-500">
                                 <li className="mb-6">
-                                    <a href="" className="cursor-pointer text-gray-600 hover:text-gray-900">Customer
-                                        Support</a>
+                                    <Link to="#" className="cursor-pointer text-gray-600 hover:text-gray-900">Customer
+                                        Support</Link>
                                 </li>
                                 <li className="mb-6">
-                                    <a href="" className="cursor-pointer  text-gray-600 hover:text-gray-900">Terms &
-                                        Conditions</a>
+                                    <Link to="#" className="cursor-pointer  text-gray-600 hover:text-gray-900">Terms &
+                                        Conditions</Link>
                                 </li>
                                 <li>
-                                    <a href="" className="cursor-pointer  text-gray-600 hover:text-gray-900">Privacy
-                                        Policy</a>
+                                    <Link to="#" className="cursor-pointer  text-gray-600 hover:text-gray-900">Privacy
+                                        Policy</Link>
                                 </li>
                             </ul>
                         </div>
@@ -97,17 +95,29 @@ const FooterSection = () => {
                         <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
                             <span className="text-sm text-gray-500 ">©pagedone 2024, All rights reserved.</span>
                             <div className="flex mt-4 space-x-4 sm:justify-center sm:mt-0 ">
-                                <a href=""
-                                    className="relative  w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                                    <FaInstagram className="w-[1.25rem] h-[0.875rem] text-white" />
+                                <a
+                                    href="https://antuportfolio.vercel.app/"
+                                    target="_blank"
+                                    className="relative  w-8 h-8 rounded-lg transition-all duration-500 flex justify-center items-center bg-indigo-600">
+                                    <FaLink className="w-[1.25rem] h-[0.875rem] text-white" />
                                 </a>
-                                <a href=""
-                                    className="relative  w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#337FFF]  hover:bg-blue-600 ">
+                                <a
+                                    href="https://www.linkedin.com/in/antu-antu/"
+                                    target="_blank"
+                                    className="relative  w-8 h-8 rounded-lg transition-all duration-500 flex justify-center items-center bg-blue-600">
+                                    <FaLinkedinIn className="w-[1.25rem] h-[0.875rem] text-white" />
+                                </a>
+                                <a
+                                    href="https://www.facebook.com/antu.das.07/"
+                                    target="_blank"
+                                    className="relative  w-8 h-8 rounded-lg transition-all duration-500 flex justify-center items-center bg-[#337FFF]">
                                     <FaFacebookF className="w-[1.25rem] h-[0.875rem] text-white" />
                                 </a>
-                                <a href=""
-                                    className="relative  w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#FF0000]  hover:bg-red-600 ">
-                                    <FaYoutube className="w-[1.25rem] h-[0.875rem] text-white" />
+                                <a
+                                    href="https://github.com/antudaa"
+                                    target="_blank"
+                                    className="relative  w-8 h-8 rounded-lg transition-all duration-500 flex justify-center items-center bg-black">
+                                    <FaGithub className="size-6 text-white" />
                                 </a>
                             </div>
                         </div>

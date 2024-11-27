@@ -34,8 +34,8 @@ const Navbar = () => {
 
     return (
         <nav className="bg-white z-50 py-3.5 px-6 w-full lg:shadow-none shadow-sm fixed border-b">
-            <div className="flex items-center justify-between gap-1 sm:gap-6 lg:flex-row flex-col">
-                <div className="flex justify-between items-center lg:w-auto w-full">
+            <div className="flex w-full max-w-7xl mx-auto items-center justify-between gap-1 sm:gap-6 lg:flex-row flex-col">
+                <div className="flex justify-between items-center lg:w-auto w-full max-w-7xl">
                     <NavLink to='/' className="cursor-pointer flex items-center">
                         <img className='w-[140px] md:w-[220px]' src={logo} alt="Site Logo" />
                     </NavLink>
@@ -69,7 +69,7 @@ const Navbar = () => {
                     className={`${isMobileMenuOpen ? "block" : "hidden"
                         } lg:flex flex-row w-full flex-1`}
                 >
-                    <ul className="text-center flex lg:flex-row flex-col lg:gap-2 xl:gap-4 items-center lg:ml-auto my-auto gap-5">
+                    <ul className="text-center flex lg:flex-row flex-col lg:gap-2 items-center lg:ml-auto my-auto gap-5">
                         <li className="mt-4 md:mt-0">
                             <NavLink
                                 to="/"

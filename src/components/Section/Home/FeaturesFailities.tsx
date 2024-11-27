@@ -86,14 +86,16 @@ const FeaturesFacilities = () => {
                                     transition={{ duration: 1.5 }}
                                     key={facility.id} className={`${bgColor} rounded-2xl flex ${index === 0 || index === 5 ? 'md:col-span-2' : ''} justify-between flex-row flex-wrap`}>
                                     <div className={`p-5 xl:p-8 w-full ${index === 0 || index === 5 ? 'md:w-1/2 lg:w-1/2' : ''}`}>
-                                        <div className="flex gap-3 bg-[aliceblue] w-[60px] px-2 rounded-xl">
-                                            <FaStar className="my-auto text-amber-500" />
-                                            <span className="my-auto text-indigo-700">{facility.rating}</span>
+                                        <div className="h-[230px]">
+                                            <div className="flex gap-3 bg-[aliceblue] w-[60px] px-2 rounded-xl">
+                                                <FaStar className="my-auto text-amber-500" />
+                                                <span className="my-auto text-indigo-700">{facility.rating}</span>
+                                            </div>
+                                            <h3 className="text-lg font-bold xl:text-xl text-white py-5 w-full xl:w-64">
+                                                {facility.name}
+                                            </h3>
+                                            <p className="text-xs font-normal text-gray-300 mb-8 xl:w-64 pr-10 text-justify">{facility.description.slice(0, 250)} ...</p>
                                         </div>
-                                        <h3 className="text-lg font-bold xl:text-xl text-white py-5 w-full xl:w-64">
-                                            {facility.name}
-                                        </h3>
-                                        <p className="text-xs font-normal text-gray-300 mb-8 xl:w-64 pr-10 text-justify">{facility.description.slice(0, 250)} ...</p>
                                         <Link to={`/facility/${facility?._id}`} className="py-2 px-5 border border-solid border-gray-300 rounded-full gap-2 text-xs text-white font-semibold flex items-center justify-between transition-all duration-500 hover:bg-white/5 text-nowrap w-[200px] hover:text-white">
                                             View Details
                                             <RightOutlined />
