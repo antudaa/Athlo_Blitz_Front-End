@@ -8,8 +8,8 @@ const HistoryTimeLine = () => {
     };
 
     return (
-        <section className="bg-[aliceblue]">
-            <div className="bg-[aliceblue] text-gray-800 py-8 max-w-7xl mx-auto">
+        <section className="">
+            <div className=" text-gray-800 py-8 max-w-7xl mx-auto">
                 <div className="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
                     <motion.div
                         variants={cardVariants}

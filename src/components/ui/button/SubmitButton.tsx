@@ -1,16 +1,14 @@
-// src/components/PrimaryButton.tsx
 import React from 'react';
-import { Button } from 'antd';
 
 interface PrimaryButtonProps {
     text: string;
     htmlType?: 'button' | 'submit' | 'reset';
 }
 
-const PrimaryButton: React.FC<PrimaryButtonProps> = ({ text, htmlType = 'button' }) => (
-    <Button type="primary" htmlType={htmlType} className="w-full h-10">
+const PrimaryButton: React.FC<PrimaryButtonProps> = ({ text }) => (
+    <button type="submit" className="w-full h-10 rounded-full font-semibold border border-indigo-600 bg-indigo-600 text-white transition-all duration-500">
         {text}
-    </Button>
+    </button>
 );
 
 export default PrimaryButton;

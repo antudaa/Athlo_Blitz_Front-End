@@ -22,7 +22,7 @@ const WorkProcess = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 1.5 }}
                 className="text-center max-w-xl mx-auto">
-                <h1 className="text-4xl md:text-5xl font-bold mb-5 text-gray-600">Athlo Blitz Work Process.</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-5 text-gray-800">Athlo Blitz Work Process.</h1>
                 <div className="text-center mb-10">
                     <span className="inline-block w-1 h-1 rounded-full bg-indigo-500 ml-1"></span>
                     <span className="inline-block w-3 h-1 rounded-full bg-indigo-500 ml-1"></span>
@@ -41,23 +41,23 @@ const WorkProcess = () => {
                     transition={{ duration: 1.5 }}
                     className="flex flex-row">
                     <div className="hidden md:flex flex-col items-center">
-                        <div className="w-32 py-5 border border-gray-300 bg-white rounded mr-4 uppercase flex flex-col items-center justify-center">
-                            <div className="text-3xl font-black text-gray-500">Step 1</div>
-                            <div className="text-gray-500 text-sm text-center">Discover Facilities</div>
+                        <div className="w-32 py-5 border border-gray-300 bg-white rounded-xl mr-4 uppercase flex flex-col items-center justify-center">
+                            <div className="text-3xl font-black text-gray-800">Step 1</div>
+                            <div className="text-gray-700 text-sm text-center font-semibold">Discover Facilities</div>
                         </div>
                         <div className="h-full border-l-4 border-transparent">
                             <div className="border-l-4 mr-4 h-full border-gray-300 border-dashed"></div>
                         </div>
                     </div>
-                    <div className="flex-auto border rounded border-gray-300 bg-white h-[300px] md:h-[250px] my-auto">
+                    <div className="flex-auto border rounded-xl border-gray-300 bg-white h-[300px] md:h-[200px] my-auto">
                         <div className="flex md:flex-row flex-col items-center">
                             <div className="flex-auto">
-                                <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
+                                <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-800">
                                     <span className="font-black">Step 1</span> - Discover Facilities
                                 </div>
-                                <div className="p-3 text-3xl text-gray-800 font">Explore Sports Facilities</div>
-                                <div className="px-3 pb-6">
-                                    Browse through a list of sports facilities with detailed descriptions, images, ratings, and reviews to find the perfect place for your next game or workout.
+                                <div className="p-3 text-xl lg:text-2xl font-semibold text-gray-800">Explore Sports Facilities</div>
+                                <div className="px-3 pb-6 text-lg">
+                                    Browse through a list of sports facilities with detailed descriptions, images, ratings, and reviews to find the perfect place for your next game or workout. Explore an extensive collection of venues, each featuring high-quality images, user-generated reviews, and accurate ratings to help you make informed choices for an enjoyable sporting experience.
                                 </div>
                             </div>
                             <div className="w-64 p-5">
@@ -92,23 +92,23 @@ const WorkProcess = () => {
                     transition={{ duration: 1.5 }}
                     className="flex flex-row-reverse">
                     <div className="hidden md:flex flex-col items-center">
-                        <div className="w-32 py-5 border border-gray-300 bg-white rounded ml-4 uppercase flex flex-col items-center justify-center">
-                            <div className="text-3xl font-black text-gray-500">Step 2</div>
-                            <div className="text-gray-500 text-sm text-center">Check Availability & Book</div>
+                        <div className="w-32 py-5 border border-gray-300 bg-white rounded-xl ml-4 uppercase flex flex-col items-center justify-center">
+                            <div className="text-3xl font-black text-gray-800">Step 2</div>
+                            <div className="text-gray-700 text-sm text-center font-semibold">Check Availability & Book</div>
                         </div>
                         <div className="h-full border-r-4 border-transparent">
                             <div className="border-l-4 ml-4 h-full border-gray-300 border-dashed"></div>
                         </div>
                     </div>
-                    <div className="flex-auto border rounded border-gray-300 bg-white h-[300px] md:h-[250px] my-auto">
+                    <div className="flex-auto border rounded-xl border-gray-300 bg-white h-[300px] md:h-[200px] my-auto">
                         <div className="flex md:flex-row flex-col items-center">
                             <div className="flex-auto">
-                                <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
+                                <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-800">
                                     <span className="font-black">Step 2</span> - Check Availability & Book
                                 </div>
-                                <div className="p-3 text-3xl text-gray-800 font">Book Your Facility</div>
-                                <div className="px-3 pb-6">
-                                    Check the real-time availability of slots at your chosen facility, select a time that suits you, and complete the booking with ease.
+                                <div className="p-3 text-xl lg:text-2xl text-gray-800 font-semibold">Book Your Facility</div>
+                                <div className="px-3 pb-6 text-lg">
+                                    Check the real-time availability of slots at your chosen facility, select a time that suits you, and complete the booking with ease. View up-to-date schedules directly from the facility, pick a time that fits your plan, and secure your spot with a hassle-free booking system.
                                 </div>
                             </div>
                             <div className="w-64 p-5">
@@ -143,23 +143,23 @@ const WorkProcess = () => {
                     transition={{ duration: 1.5 }}
                     className="flex flex-row">
                     <div className="hidden md:flex flex-col items-center">
-                        <div className="w-32 py-5 border border-gray-300 bg-white rounded mr-4 uppercase flex flex-col items-center justify-center">
-                            <div className="text-3xl font-black text-gray-500">Step 3</div>
-                            <div className="text-gray-500 text-sm text-center">Secure Payment</div>
+                        <div className="w-32 py-5 border border-gray-300 bg-white rounded-xl mr-4 uppercase flex flex-col items-center justify-center">
+                            <div className="text-3xl font-black text-gray-800">Step 3</div>
+                            <div className="text-gray-700 text-sm text-center font-semibold">Secure Payment</div>
                         </div>
                         <div className="h-full border-l-4 border-transparent">
                             <div className="border-l-4 mr-4 h-full border-gray-300 border-dashed"></div>
                         </div>
                     </div>
-                    <div className="flex-auto border rounded border-gray-300 bg-white h-[300px] md:h-[250px] my-auto">
+                    <div className="flex-auto border rounded-xl border-gray-300 bg-white h-[300px] md:h-[200px] my-auto">
                         <div className="flex md:flex-row flex-col items-center">
                             <div className="flex-auto">
-                                <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
+                                <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-800">
                                     <span className="font-black">Step 3</span> - Secure Payment
                                 </div>
-                                <div className="p-3 text-3xl text-gray-800 font">Complete Your Payment</div>
-                                <div className="px-3 pb-6">
-                                    Securely pay for your booking using our online payment system. Receive instant confirmation and ensure your slot is secured.
+                                <div className="p-3 text-xl lg:text-2xl text-gray-800 font-semibold">Complete Your Payment</div>
+                                <div className="px-3 pb-6 text-lg">
+                                    Securely pay for your booking using our online payment system. Receive instant confirmation and ensure your slot is secured. Complete your transaction safely through our integrated payment platform, ensuring your financial data is protected at every step.
                                 </div>
                             </div>
                             <div className="w-64 p-5">
@@ -194,20 +194,20 @@ const WorkProcess = () => {
                     transition={{ duration: 1.5 }}
                     className="flex flex-row-reverse">
                     <div className="hidden md:flex flex-col items-center">
-                        <div className="w-32 py-5 border border-gray-300 bg-white rounded ml-4 uppercase flex flex-col items-center justify-center">
-                            <div className="text-3xl font-black text-gray-500">Step 4</div>
-                            <div className="text-gray-500 text-sm text-center">Manage Bookings & Reviews</div>
+                        <div className="w-32 py-5 border border-gray-300 bg-white rounded-xl ml-4 uppercase flex flex-col items-center justify-center">
+                            <div className="text-3xl font-black text-gray-800">Step 4</div>
+                            <div className="text-gray-700 text-sm text-center font-semibold">Manage Bookings & Reviews</div>
                         </div>
                     </div>
-                    <div className="flex-auto border rounded border-gray-300 bg-white h-[300px] md:h-[250px] my-auto">
+                    <div className="flex-auto border rounded-xl border-gray-300 bg-white h-[300px] md:h-[200px] my-auto">
                         <div className="flex md:flex-row flex-col items-center">
                             <div className="flex-auto">
-                                <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
+                                <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-800">
                                     <span className="font-black">Step 4</span> - Manage Bookings & Reviews
                                 </div>
-                                <div className="p-3 text-3xl text-gray-800 font">Manage Your Experience</div>
-                                <div className="px-3 pb-6">
-                                    Access your personalized dashboard to manage bookings, cancel if needed, request refunds, and submit or edit reviews. Enjoy a seamless experience tailored to your needs.
+                                <div className="p-3 text-xl lg:text-2xl text-gray-800 font-semibold">Manage Your Experience</div>
+                                <div className="px-3 pb-6 text-lg">
+                                    Access your personalized dashboard to manage bookings, cancel if needed, request refunds, and submit or edit reviews. Enjoy a seamless experience tailored to your needs. Take full control of your experience with an intuitive dashboard, allowing seamless management of your bookings and interactions with facilities.
                                 </div>
                             </div>
                             <div className="w-64 p-5">

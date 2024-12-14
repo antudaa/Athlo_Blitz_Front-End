@@ -1,4 +1,3 @@
-import { Button } from 'antd';
 
 export interface TAvailableSlot {
     endTime: string;
@@ -22,9 +21,9 @@ const AvailableSlots = ({ startTime, endTime, date, facility, onSelectSlot, isSe
             <div className="font-semibold text-md mb-2">
                 {startTime} - {endTime}
             </div>
-            <Button type="primary" onClick={handleSelectSlot} disabled={isSelected}>
+            <button className={`w-full h-8 rounded-full  border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-500 ${isSelected ? "bg-indigo-600 text-white" : "bg-white text-gray-800 border"}`} onClick={handleSelectSlot} disabled={isSelected}>
                 {isSelected ? 'Selected' : 'Select Slot'}
-            </Button>
+            </button>
         </div>
     );
 };

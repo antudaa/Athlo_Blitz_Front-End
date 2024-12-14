@@ -1,5 +1,5 @@
-import NewSletter from "../../components/Global/NewSletter";
-import FAQSection from "../../components/Section/ContactUs/FAQSection";
+import Statistics from "../../components/Global/Statistics";
+import CategorySection from "../../components/Section/Home/CategorySection";
 import FeaturesFacilities from "../../components/Section/Home/FeaturesFailities";
 import HeroSection from "../../components/Section/Home/HeroSection";
 import Testimonials from "../../components/Section/Home/Testimonials";
@@ -10,11 +10,11 @@ const HomePage = () => {
     return (
         <>
             <HeroSection />
+            <CategorySection />
             <FeaturesFacilities />
             <WorkProcess />
+            <Statistics />
             <Testimonials />
-            <FAQSection />
-            <NewSletter />
         </>
     );
 };

@@ -1,4 +1,4 @@
-import { Button, Form, Spin, DatePicker } from 'antd';
+import { Form, Spin, DatePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
 import { useGetAvailableTimeSlotQuery } from '../../../redux/features/slotAvailibility/availableSlotApi';
 import { useSelector } from 'react-redux';
@@ -57,7 +57,8 @@ const CheckAvailabilityForm = ({ id }: CheckAvailabilityFormProps) => {
         }
     };
 
-    console.log(data);
+    console.log(data)
+
 
     return (
         <section className="w-full max-w-7xl mx-auto px-4 md:px-8 mt-10">
@@ -75,16 +76,15 @@ const CheckAvailabilityForm = ({ id }: CheckAvailabilityFormProps) => {
                     onFinish={handleSubmit}
                 >
                     <Form.Item
-                        className="col-span-6 md:col-span-4"
+                        className="col-span-6 md:col-span-4 rounded-full text-lg"
                         name="date"
                         rules={[{ required: true, message: 'Please select a date' }]}
                     >
-                        <DatePicker className="h-[40px] text-center" style={{ width: '100%' }} />
+                        <DatePicker className="h-[40px] text-center rounded-full" style={{ width: '100%' }} />
                     </Form.Item>
-
-                    <Button type="primary" htmlType="submit" className="h-[40px] col-span-6 md:col-span-2 w-full">
+                    <button type="submit" className="h-[40px] col-span-6 md:col-span-2 w-full rounded-full bg-white text-gray-800 font-semibold border border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-500">
                         Check Available Slots
-                    </Button>
+                    </button>
                 </Form>
 
                 {dateError && <div className="text-red-500 text-center mt-2">{dateError}</div>}

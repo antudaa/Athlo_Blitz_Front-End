@@ -1,5 +1,4 @@
 import { Form, Typography, message } from 'antd';
-import Background from '../../assets/Auth_Background.png';
 import siteLogo from '../../assets/Site_Logo.png';
 import PrimaryButton from '../../components/ui/button/SubmitButton';
 import PasswordInput from '../../components/ui/inputField/PasswordInput';
@@ -13,6 +12,7 @@ import { useAppDispatch } from '../../redux/hooks';
 import { verifyToken } from '../../utils/verifyToken';
 import { useLazyGetUserFullDetailQuery } from '../../redux/features/user/userApi';
 import { TError } from '../../types/Error/errorType';
+import loginImage from "../.../../../assets/loginImage.png";
 
 const { Text } = Typography;
 
@@ -74,36 +74,34 @@ const LoginPage = () => {
     };
 
     return (
-        <section className="flex justify-center relative">
-            <img
-                src={Background}
-                className="w-full h-full object-cover fixed opacity-90"
-                alt="Background"
-            />
-            <div className="mx-auto max-w-5xl w-[320px] md:w-[500px] px-6 absolute pt-10 my-10 md:my-24 lg:my-40 rounded-2xl bg-white shadow-2xl">
-                <img
-                    src={siteLogo}
-                    alt="pagedone logo"
-                    className="mx-auto w-[250px] "
-                />
-                <div className="rounded-2xl bg-white">
+            <section className="relative flex flex-wrap lg:h-screen lg:items-center">
+                <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
+                    <div className="mx-auto max-w-lg text-center items-center flex">
+                        <h1 className="font-bold text-2xl lg:text-3xl my-6">Wellcome To</h1>
+
+                        <img
+                        src={siteLogo}
+                        alt="pagedone logo"
+                        className="mx-auto w-[150px] h-[40px]"
+                    />
+                    </div>
                     <Form
+                        className="mx-auto mb-0 mt-8 max-w-md space-y-4"
                         form={form}
-                        className="p-7 mx-auto"
                         onFinish={onSubmit}
                         layout="vertical"
                     >
                         <div className="flex justify-between mb-4">
                             <button
                                 type="button"
-                                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                                className="bg-indigo-600 text-white px-4 py-2 rounded-full"
                                 onClick={() => handleAutofill('user')}
                             >
                                 User Credential
                             </button>
                             <button
                                 type="button"
-                                className="bg-green-500 text-white px-4 py-2 rounded-md"
+                                className="bg-green-500 text-white px-4 py-2 rounded-full"
                                 onClick={() => handleAutofill('admin')}
                             >
                                 Admin Credential
@@ -152,8 +150,15 @@ const LoginPage = () => {
                         </Form.Item>
                     </Form>
                 </div>
-            </div>
-        </section>
+
+                <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2 bg-indigo-50">
+                    <img
+                        alt=""
+                        src={loginImage}
+                        className="absolute inset-0 h-full w-full object-cover"
+                    />
+                </div>
+            </section>
     );
 };
 

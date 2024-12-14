@@ -5,7 +5,6 @@ const facilityApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         createFacility: builder.mutation({
             query: ({ facilityInfo, token }) => {
-                console.log(facilityInfo);
                 return {
                     url: "/facility",
                     method: "POST",

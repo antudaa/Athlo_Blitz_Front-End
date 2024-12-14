@@ -44,24 +44,6 @@ const FAQSection: React.FC = () => {
     return (
         <section className="py-24 bg-slate-50">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    variants={cardVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5 }}
-                    className="mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-5 text-gray-600 text-center">
-                        Frequently Asked Questions
-                    </h2>
-                    <div className="text-center mb-10">
-                        <span className="inline-block w-1 h-1 rounded-full bg-indigo-500 ml-1"></span>
-                        <span className="inline-block w-3 h-1 rounded-full bg-indigo-500 ml-1"></span>
-                        <span className="inline-block w-40 h-1 rounded-full bg-indigo-500"></span>
-                        <span className="inline-block w-3 h-1 rounded-full bg-indigo-500 ml-1"></span>
-                        <span className="inline-block w-1 h-1 rounded-full bg-indigo-500 ml-1"></span>
-                    </div>
-                </motion.div>
                 <div className="accordion-group">
                     {faqs.map((faq, index) => (
                         <motion.div

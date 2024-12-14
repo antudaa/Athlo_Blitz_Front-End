@@ -8,8 +8,6 @@ import { TbBrandBooking } from "react-icons/tb";
 import { FaHome, FaUsersCog } from "react-icons/fa";
 import ManageUsersPage from "../pages/Admin/ManageUsersPage";
 
-
-
 export const adminPaths = [
   {
     name: 'Home',

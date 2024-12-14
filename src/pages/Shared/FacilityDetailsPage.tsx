@@ -85,8 +85,8 @@ const FacilityDetailsPage = () => {
                                 text="Book Now"
                             />
                         </div>
-                        <h2 className="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{name}</h2>
-                        <p className="text-gray-500 text-sm">By <span className="text-indigo-600 hover:underline">Athlo Blitz</span></p>
+                        <h2 className="mb-2 leading-tight tracking-tight font-semibold text-gray-800 text-2xl lg:text-4xl">{name}</h2>
+                        <p className="text-gray-800 text-lg">By <span className="text-indigo-600 hover:underline">Athlo Blitz</span></p>
 
                         <div className="flex items-center space-x-4 my-4">
                             <div>
@@ -97,19 +97,19 @@ const FacilityDetailsPage = () => {
                             </div>
                             <div className="flex-1">
                                 <p className="text-blue-900 text-xl font-semibold">Save 12%</p>
-                                <p className="text-gray-600 text-sm">Inclusive of all Taxes.</p>
+                                <p className="text-gray-800 text-sm">Inclusive of all Taxes.</p>
                             </div>
                         </div>
 
                         <div className="mt-4">
-                            <p className="text-gray-800 font-semibold text-xl mb-2">Facility Details</p>
-                            <p className="text-gray-500">{description}</p>
+                            <p className="text-gray-800 font-semibold text-xl lg:text-2xl mb-2">Facility Details</p>
+                            <p className="text-gray-800 text-lg">{description}</p>
 
                             <div className="flex flex-col flex-wrap">
                                 <div className="flex flex-col mt-6">
                                     <div className="flex gap-2">
                                         <svg
-                                            className="size-5 text-indigo-700"
+                                            className="size-7 text-indigo-700"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
@@ -123,21 +123,20 @@ const FacilityDetailsPage = () => {
                                             />
                                         </svg>
                                         <div className="mt-1.5 sm:mt-0">
-                                            <p className="text-gray-500">Location</p>
+                                            <p className="text-gray-700 text-lg">Location</p>
                                         </div>
                                     </div>
 
-                                    <p className="font-semibold text-nowrap mt-2">{location}</p>
+                                    <p className="font-semibold text-nowrap mt-2 text-lg">{location}</p>
                                 </div>
-                                <div className="flex flex-col mt-3">
-                                    <div className="flex gap-2">
-                                        <StarOutlined className="size-5 text-amber-700" />
-                                        <div className="mt-1.5 sm:mt-0">
-                                            <p className="text-gray-500">Rating</p>
+                                <div className="flex justify-start gap-4 items-center mt-3">
+                                    <div className="flex">
+                                        <StarOutlined className="size-7 text-amber-700" />
+                                        <div className="mt-1.5 sm:mt-0 flex gap-2">
+                                            <p className="font-semibold text-nowrap text-lg">{rating}</p>
+                                            <p className="text-gray-800 text-lg">Rating</p>
                                         </div>
                                     </div>
-
-                                    <p className="font-semibold text-nowrap mt-2">{rating}</p>
                                 </div>
                             </div>
                         </div>

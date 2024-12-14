@@ -16,6 +16,7 @@ import { adminPaths } from "./AdminRoute";
 import UserDashboard from "../components/layout/UserDashboardLayout";
 import { userPaths } from "./userRoute";
 import ViewBookingDetails from "../pages/Shared/ViewBookingDetails";
+import FAQPage from "../pages/Shared/FAQPage";
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
             {
                 path: 'facility/:id',
                 element: <FacilityDetailsPage />,
+            },
+            {
+                path: 'faq',
+                element: <FAQPage />,
             },
         ],
     },

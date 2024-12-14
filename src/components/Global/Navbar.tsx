@@ -37,7 +37,7 @@ const Navbar = () => {
             <div className="flex w-full max-w-7xl mx-auto items-center justify-between gap-1 sm:gap-6 lg:flex-row flex-col">
                 <div className="flex justify-between items-center lg:w-auto w-full max-w-7xl">
                     <NavLink to='/' className="cursor-pointer flex items-center">
-                        <img className='w-[140px] md:w-[220px]' src={logo} alt="Site Logo" />
+                        <img className='w-[120px] md:w-[180px]' src={logo} alt="Site Logo" />
                     </NavLink>
                     <div>
                         <button
@@ -74,7 +74,7 @@ const Navbar = () => {
                             <NavLink
                                 to="/"
                                 className={({ isActive }) =>
-                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-xs font-semibold rounded-md ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-500 hover:bg-indigo-600 hover:text-white'
+                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-md font-semibold rounded-full ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-800 hover:bg-indigo-600 hover:text-white'
                                     }`
                                 }
                             >
@@ -83,9 +83,20 @@ const Navbar = () => {
                         </li>
                         <li className="mt-4 md:mt-0">
                             <NavLink
+                                to="/facilities"
+                                className={({ isActive }) =>
+                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-md font-semibold rounded-full ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-800 hover:bg-indigo-600 hover:text-white'
+                                    }`
+                                }
+                            >
+                                Facility
+                            </NavLink>
+                        </li> 
+                        <li className="mt-4 md:mt-0">
+                            <NavLink
                                 to="/about"
                                 className={({ isActive }) =>
-                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-xs font-semibold rounded-md ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-500 hover:bg-indigo-600 hover:text-white'
+                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-md font-semibold rounded-full ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-800 hover:bg-indigo-600 hover:text-white'
                                     }`
                                 }
                             >
@@ -94,20 +105,20 @@ const Navbar = () => {
                         </li>
                         <li className="mt-4 md:mt-0">
                             <NavLink
-                                to="/facilities"
+                                to="/faq"
                                 className={({ isActive }) =>
-                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-xs font-semibold rounded-md ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-500 hover:bg-indigo-600 hover:text-white'
+                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-md font-semibold rounded-full ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-800 hover:bg-indigo-600 hover:text-white'
                                     }`
                                 }
                             >
-                                Facility
+                                FAQ
                             </NavLink>
                         </li>
                         <li className="mt-4 md:mt-0">
                             <NavLink
                                 to="/contact"
                                 className={({ isActive }) =>
-                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-xs font-semibold rounded-md ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-500 hover:bg-indigo-600 hover:text-white'
+                                    `py-1.5 px-3 transition-all duration-500 ease-in-out text-md font-semibold rounded-full ${isActive ? 'bg-indigo-600 text-white hover:text-white' : 'bg-transparent text-gray-800 hover:bg-indigo-600 hover:text-white'
                                     }`
                                 }
                             >
@@ -122,13 +133,13 @@ const Navbar = () => {
                                 !currentUser?.user?.role ? (
                                     <>
                                         <NavLink to='/login'
-                                            className="bg-indigo-50 text-indigo-600 rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-2.5 px-6 text-sm hover:bg-indigo-100 mx-auto">Login
+                                            className="bg-white border border-indigo-500 text-gray-800 rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-2.5 px-6 text-md hover:bg-indigo-500 hover:text-white mx-auto">Login
                                         </NavLink>
-                                        <p className="text-gray-200 dark:text-gray-700 font-normal my-auto hidden md:block">
+                                        <p className="text-gray-200 dark:text-gray-700 font-normal my-auto hidden lg:flex">
                                             |
                                         </p>
                                         <NavLink to='/register'
-                                            className="bg-indigo-600 text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-2.5 px-6 text-sm lg:ml-5 hover:bg-indigo-700 hover:text-white">Sign
+                                            className="bg-indigo-600 text-white border border-indigo-500 rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 py-2.5 px-6 text-sm lg:ml-5 hover:bg-white hover:text-gray-800 ">Sign
                                             up
                                         </NavLink>
                                     </>

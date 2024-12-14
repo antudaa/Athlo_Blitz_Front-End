@@ -25,29 +25,29 @@ const BookingHero = ({ facility }: BookingHeroProps) => {
                 className="grid grid-cols-12 gap-y-11 ">
                 <div
                     className="col-span-12 lg:col-span-7 py-6 px-4 lg:px-11 max-lg:rounded-2xl lg:rounded-l-2xl flex flex-col justify-between max-lg:max-w-lg max-lg:mx-auto">
-                    <h2 className="font-manrope font-bold text-2xl sm:text-4xl leading-10 text-gray-700 mb-9">{name} Facility</h2>
-                    <p className="mb-6 text-gray-700 text-justify">{description}</p>
+                    <h2 className="font-manrope font-bold text-2xl sm:text-4xl leading-10 text-gray-800 mb-9">{name} Facility</h2>
+                    <p className="mb-6 text-gray-800 text-justify text-lg">{description}</p>
                     <div className="flex flex-col min-[550px]:flex-row max-[550px]:gap-4 min-[550px]:items-center py-4 pr-3 lg:pr-10 pl-3 lg:pl-6 bg-white w-full xl:w-[calc(100%-45px)]">
                         <div className="flex items-center gap-4 pr-6 max-[550px]:pl-6 min-[550px]:border-r border-gray-200 ">
                             <button
                                 className="p-4 rounded-full bg-indigo-50 transition-all duration-500 hover:bg-indigo-100">
                                 <MdOutlineStarPurple500 className="h-5 w-5 text-indigo-600 mx-auto my-auto" />
                             </button>
-                            <p className="font-medium text-sm text-black">{rating}</p>
+                            <p className="font-medium text-lg text-gray-800">{rating}</p>
                         </div>
                         <div className="flex items-center gap-4 px-6 min-[550px]:border-r border-gray-200 ">
                             <button
                                 className="p-3 rounded-full bg-indigo-50 transition-all duration-500 hover:bg-indigo-100">
                                 <MdLocationOn className="h-6 w-6 text-indigo-600 mx-auto my-auto" />
                             </button>
-                            <p className="font-medium text-sm text-black">{location}</p>
+                            <p className="font-medium text-lg text-gray-800">{location}</p>
                         </div>
                         <div className="flex items-center gap-4 pl-6  ">
                             <button
                                 className="p-3 rounded-full bg-indigo-50 transition-all duration-500 hover:bg-indigo-100">
                                 <MdOutlinePriceChange className="h-6 w-6 text-indigo-600 mx-auto my-auto" />
                             </button>
-                            <p className="font-medium text-sm text-black">${pricePerHour}</p>
+                            <p className="font-medium text-lg text-gray-800">${pricePerHour}</p>
                         </div>
                     </div>
                 </div>

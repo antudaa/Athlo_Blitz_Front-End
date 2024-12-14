@@ -1,4 +1,4 @@
-import { Button, Form, message, TimePicker } from 'antd';
+import { Form, message, TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import { useCreateBookingMutation } from '../../../redux/features/booking/bookingApi';
 import { useSelector } from 'react-redux';
@@ -13,7 +13,6 @@ interface IBookingData {
 }
 
 const BookingForm = ({ date, facility, startTime, endTime }: IBookingData) => {
-    console.log(date, facility, startTime, endTime)
     const token = useSelector(useCurrentToken);
     const [createBooking] = useCreateBookingMutation();
 
@@ -24,8 +23,6 @@ const BookingForm = ({ date, facility, startTime, endTime }: IBookingData) => {
             startTime,
             endTime,
         };
-
-        console.log(bookingData);
 
         try {
             const res = await createBooking({ bookingData, token }).unwrap();
@@ -78,9 +75,9 @@ const BookingForm = ({ date, facility, startTime, endTime }: IBookingData) => {
                 />
             </Form.Item>
 
-            <Button type="primary" htmlType="submit" className="h-[40px] col-span-6 w-full mt-8 md:mt-14">
+            <button type="submit" className="h-[40px] col-span-6 w-full mt-8 md:mt-14 rounded-full bg-white text-gray-800 font-semibold border border-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-500">
                 Proceed To Pay
-            </Button>
+            </button>
         </Form>
     );
 };

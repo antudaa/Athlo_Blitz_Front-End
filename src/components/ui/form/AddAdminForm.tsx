@@ -48,7 +48,7 @@ const AddAdminForm = () => {
             form={form}
             layout="vertical"
             onFinish={onFinish}
-            className="lg:p-11 p-7 mx-auto max-w-7xl border border-indigo-500 rounded-2xl bg-white shadow-xl my-10"
+            className="lg:p-11 p-7 mx-auto max-w-7xl my-10"
         >
             <div className="mb-11 text-center">
                 <Title level={2} className="text-gray-900 font-manrope mb-2">
